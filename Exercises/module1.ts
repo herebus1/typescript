@@ -60,3 +60,30 @@ randomValue2 = 'Mateo again';   // OK
 console.log(randomValue2.name);  // Error: Object is of type unknown
 randomValue2();                  // Error: Object is of type unknown
 randomValue2.toUpperCase();      // Error: Object is of type unknown */
+
+//Multitype example
+/* let multiType: number | boolean;
+multiType = 20;         //* Valid
+multiType = true;       //* Valid
+multiType = "twenty";   //* Invalid */
+
+/*
+Union types example
+Example where a variable can be string or number, 
+if the two are numbers the function makes the add if they are string it concatenates the variables, 
+otherwise raise an error*/
+function add(x: number | string, y: number | string) {
+    if (typeof x === 'number' && typeof y === 'number') {
+        return x + y;
+    }
+    if (typeof x === 'string' && typeof y === 'string') {
+        return x.concat(y);
+    }
+    throw new Error('Parameters must be numbers or strings');
+}
+console.log(add('one', 'two'));  //* Returns "onetwo"
+console.log(add(1, 2));          //* Returns 3
+console.log(add('one', 2));      //* Returns error
+
+
+    
