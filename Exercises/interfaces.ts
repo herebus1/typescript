@@ -20,6 +20,7 @@ let employee: Employee = {
 interface Icecream{
     flavor: string;
     scoops: number;
+    instructions?: string;
 }
 
 let iceCream: Icecream = {
@@ -28,3 +29,14 @@ let iceCream: Icecream = {
  }
  
  console.log(iceCream.flavor);
+
+ //function that calls the icecream interface as parameter type to check the number of scoops in Icecream
+ function tooManyScoops(dessert: Icecream) {
+    if (dessert.scoops >= 4) {
+       return dessert.scoops + ' is too many scoops!';
+    } else {
+       return 'Your order will be ready soon!';
+    }
+ }
+ 
+ console.log(tooManyScoops({flavor: 'vanilla', scoops: 3}));
